@@ -10,4 +10,7 @@ export * from './components/ItemDetailContainer/ItemDetailContainer';
 export * from './components/ItemList/ItemList';
 export * from './components/ItemListContainer/ItemListContainer';
 export * from './components/NavBar/NavBar';
+export * from './components/utils/seedProducts';
+export * from './config/firebaseConfig';
+export * from './context/CartContext';
 export * from './main';

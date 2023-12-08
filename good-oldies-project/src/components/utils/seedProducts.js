@@ -1,6 +1,5 @@
-import { addDoc, collection } from "firebase/firestore"
-import { db } from "./config/firebaseConfig";
-
+import { addDoc, collection  } from "firebase/firestore"
+import { db } from "../../config/firebaseConfig";
 
 const products = [
     {
@@ -95,32 +94,9 @@ const products = [
     }
 ];
 
+export const seedProducts = () => {
 
-export const getProducts = () => {
-    return new Promise ((resolve, reject) => {
-        if(products.length > 0) {
-            setTimeout (() => {
-                resolve(products);
-            }, 2000)
-        } else {
-            reject("Nos quedamos sin buena musica :(");
-        }
-    })
-}
-
-export const getProductById = (id) => {
-    return new Promise((resolve, reject) => {
-        if (products.length > 0) {
-            const product = products.find( p => p.id === Number(id));
-
-            setTimeout(() => {
-                if(!product) {
-                    reject(`No se encuentra el productos con el id ${id}`)
-                }
-                    resolve(product);
-            }, 2000);
-        } else {
-            reject("No hay productos");
-        }
+    products.forEach(product => {
+        addDoc( collection(db, "products"), product );
     });
-};
+}

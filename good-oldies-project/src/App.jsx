@@ -4,12 +4,15 @@ import { Footer } from "./components/Footer/Footer"
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer"
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"
 import { Cart } from "./components/Cart/Cart"
+import { CartContextProvider } from "./context/CartContext"
 
 
 function App() {
   return (
     <>
+    <CartContextProvider>
       <BrowserRouter>
+      
         <NavBar />
         <Routes>
           <Route path="/" element={ <ItemListContainer /> } />
@@ -18,7 +21,9 @@ function App() {
           <Route path="/cart" element={ <Cart /> } />
         </Routes>
         <Footer />
+        
       </BrowserRouter>
+      </CartContextProvider>
     </>
   )
 }
