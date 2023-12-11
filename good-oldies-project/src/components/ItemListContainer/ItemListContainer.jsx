@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
+import {  useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
@@ -7,8 +6,10 @@ import { db } from "../../config/firebaseConfig";
 import { seedProducts } from "../utils/seedProducts";
 
 
+
 export const ItemListContainer = () => {
     // const { category } = useParams();
+
     const [products, setProducts] = useState([]);
 
     // useEffect(() => {

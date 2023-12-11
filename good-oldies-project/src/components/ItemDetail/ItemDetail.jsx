@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 
-export const ItemDetail = ({title, artist, genre, year, price, pictureUrl }) => {
+export const ItemDetail = ({id, title, artist, genre, year, price, pictureUrl }) => {
 
     const { addItem } = useContext(CartContext);
 
@@ -15,7 +15,7 @@ export const ItemDetail = ({title, artist, genre, year, price, pictureUrl }) => 
             <p> {genre} </p>
             <p> {year} </p>
             <h5> {price} </h5>
-            <Button text="Agregar al Carrito" onClick={() => addItem({id, title, price}, quantity)} />
+            <Button text="Agregar al Carrito" onClick={() => addItem( {id, title, price}, quantity )} />
             <Link to="/"> 
                 <Button text="Volver al inicio"/>
             </Link> 
