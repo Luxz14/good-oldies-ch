@@ -1,12 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext(null);
 
 export const CartContextProvider = ( {children} ) => {
     const [cartItems, setCartItems] = useState([])
+    const [totalCartItems, setTotalCartItems] = useState(0);
+    const [totalQuantity, setTotalQuantity] = useState(0);
 
     const addItem = (item, quantity) => {
-        const { id, title, price } = item;
+        const { id, title, price, artist, pictureUrl } = item;        
         const index = cartItems.findIndex(product => product.id === id);
 
 
@@ -20,7 +22,9 @@ export const CartContextProvider = ( {children} ) => {
         } else {
             const newItem = {
                 id,
+                pictureUrl,
                 title,
+                artist,
                 price,
                 quantity,
                 subTotal: quantity * price,
@@ -30,9 +34,37 @@ export const CartContextProvider = ( {children} ) => {
         
     }
 
+    const removeItem = (id) => {
+        const arrayFilter = cartItems.filter((item) => item.id !== id);
+        setCartItems(arrayFilter);
+    }
+
+    const clearCartItems = () => {
+        setCartItems([]);
+    }
+
+    const handleTotal = () => {
+        const total = cartItems.reduce( (acum, item) => acum + item.subTotal, 0 );
+        setTotalCartItems(total);
+    }
+
+    const handleTotalQuantity = () => {
+        const total = cartItems.reduce( (acum, item) => acum + item.quantity, 0);
+        setTotalQuantity(total);
+    }
+
+    useEffect(() => {
+        handleTotal();
+        handleTotalQuantity();
+    }, [cartItems])
+
     const objectValue = {
         cartItems,
-        addItem
+        addItem,
+        totalCartItems,
+        totalQuantity,
+        removeItem,
+        clearCartItems,
     }
 
     return <CartContext.Provider value={objectValue}> {children} </CartContext.Provider>

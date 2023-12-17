@@ -8,6 +8,7 @@ const products = [
         artist: 'The Beatles',
         genre: 'Rock & Roll',
         category: 'Rock',
+        stock: 10,
         year: 1967, 
         price: 10.99, 
         pictureUrl: '/assets/beatlesalbum.png'
@@ -18,6 +19,7 @@ const products = [
         artist: 'Elvis Presley',
         genre: 'Compilation',
         category: 'Rock',
+        stock: 10,
         year: 2002,
         price: 20.99, 
         pictureUrl: '/assets/elvisalbum.png' 
@@ -28,6 +30,7 @@ const products = [
         artist: 'Luis Alberto Spinetta',
         genre: 'Rock & Roll',
         category: 'Rock',
+        stock: 10,
         year: 1973,
         price: 10.99, 
         pictureUrl: '/assets/artaud.png'
@@ -38,6 +41,7 @@ const products = [
         artist: 'Pink Floyd',
         genre: 'Rock & Roll',
         category: 'Rock',
+        stock: 10,
         year: 1973, 
         price: 15.99, 
         pictureUrl: '/assets/pinkfloydalbum.png'
@@ -48,6 +52,7 @@ const products = [
         artist: 'Charly García',
         genre: 'Rock & Roll',
         category: 'Rock',
+        stock: 10,
         year: 1983, 
         price: 10.99, 
         pictureUrl: '/assets/clicsmodernos.png'
@@ -58,6 +63,7 @@ const products = [
         artist: 'The Beatles',
         genre: 'Rock & Roll',
         category: 'Rock',
+        stock: 10,
         year: 1965,  
         price: 10.99, 
         pictureUrl: '/assets/rubbersoul.png'
@@ -68,6 +74,7 @@ const products = [
         artist: 'Michael Jackson',
         genre: 'Pop',
         category: 'Pop',
+        stock: 10,
         year: 1982, 
         price: 20.99, 
         pictureUrl: '/assets/thriller.png'
@@ -78,6 +85,7 @@ const products = [
         artist: 'Charly García', 
         genre: 'Rock & Roll',
         category: 'Pop',
+        stock: 10,
         year: 1989,
         price: 15.99, 
         pictureUrl: '/assets/comoconseguirchicas.png'
@@ -87,6 +95,7 @@ const products = [
         title: 'Kind Of Blue', 
         artist: 'Miles Davis',
         genre: 'Jazz',
+        stock: 10,
         category: 'Jazz',
         year: 1959, 
         price: 10.99, 

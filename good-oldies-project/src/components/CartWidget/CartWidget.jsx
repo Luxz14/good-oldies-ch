@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
+import { useContext } from 'react';
 
 export const CartWidget = () => {
-    const [count, setCount] = useState(0);
+    const { totalQuantity } = useContext(CartContext)
 
     return (
-        <i className="fa-solid fa-cart-shopping fa-lg"> <span className="cart"> {count} </span> </i>
+        <Link to="/cart">
+            <i className="fa-solid fa-cart-shopping fa-lg"> <span className="cart"> {totalQuantity} </span> </i>
+        </Link>
     )
 }

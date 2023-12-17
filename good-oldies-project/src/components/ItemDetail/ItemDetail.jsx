@@ -1,11 +1,26 @@
 import { Button } from "../Button/Button"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
+import { ItemCount } from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
+import Swal from "sweetalert2"
 
-export const ItemDetail = ({id, title, artist, genre, year, price, pictureUrl }) => {
+export const ItemDetail = ({id, title, artist, genre, year, price, pictureUrl, stock }) => {
 
-    const { addItem } = useContext(CartContext);
+    const { addItem} = useContext(CartContext);
+
+    const addCount = (items) => {
+        addItem({
+            id,
+            title,
+            artist,
+            genre,
+            year,
+            price,
+            pictureUrl
+        }, items)
+    }
+
 
     return (
         <div className="card-center">
@@ -15,7 +30,7 @@ export const ItemDetail = ({id, title, artist, genre, year, price, pictureUrl })
             <p> {genre} </p>
             <p> {year} </p>
             <h5> {price} </h5>
-            <Button text="Agregar al Carrito" onClick={() => addItem( {id, title, price}, quantity )} />
+            <ItemCount stock={stock} addCount={addCount} />
             <Link to="/"> 
                 <Button text="Volver al inicio"/>
             </Link> 

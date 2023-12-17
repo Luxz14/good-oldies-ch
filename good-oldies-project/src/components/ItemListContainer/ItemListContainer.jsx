@@ -8,8 +8,7 @@ import { seedProducts } from "../utils/seedProducts";
 
 
 export const ItemListContainer = () => {
-    // const { category } = useParams();
-
+    const { category } = useParams();
     const [products, setProducts] = useState([]);
 
     // useEffect(() => {
@@ -53,8 +52,9 @@ export const ItemListContainer = () => {
     }
 
     useEffect(() => {
-        getProductsDB()
-    }, [])
+        getProductsDB(category)
+
+    }, [category])
 
     return (
         <>
