@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Swal from "sweetalert2";
 
     export const Cart = () => {
 
     const { cartItems, removeItem, totalCartItems } = useContext(CartContext);
     console.log(totalCartItems)
     console.log(cartItems)
+    const navigate = useNavigate();
+
+    const handleConfirmOrder = () => {
+            navigate("/confirmar-compra");
+    };
 
         return (
             <>
@@ -19,13 +23,15 @@ import Swal from "sweetalert2";
                     <h3> {item.title} </h3>
                     <h5> {item.artist} </h5>
                     <h5> {item.price} </h5>
-                        <Button text="Eliminar" functionClick={() => removeItem(item.id)} /> 
+                    <Button text="Confirmar Compra" variant="btn btn-success" functionClick={handleConfirmOrder}  />
+                    <Button text="Eliminar" variant="btn btn-danger" functionClick={() => removeItem(item.id)} /> 
                     <Link to="/"> 
                         <Button text="Volver al inicio"/>
                     </Link>  
                 </div>
             ))}
-            <h2 className="greeting">Total del carrito: ${totalCartItems} </h2>
+                    <h2 className="greeting">Total del carrito: ${totalCartItems} </h2>
+                    
             </>
         )
     }

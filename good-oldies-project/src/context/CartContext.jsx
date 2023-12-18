@@ -3,7 +3,10 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext(null);
 
 export const CartContextProvider = ( {children} ) => {
-    const [cartItems, setCartItems] = useState([])
+
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItmes')) || [];
+
+    const [cartItems, setCartItems] = useState(storedCartItems)
     const [totalCartItems, setTotalCartItems] = useState(0);
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -57,6 +60,10 @@ export const CartContextProvider = ( {children} ) => {
         handleTotal();
         handleTotalQuantity();
     }, [cartItems])
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     const objectValue = {
         cartItems,
