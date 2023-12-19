@@ -6,7 +6,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { Cart } from "./components/Cart/Cart"
 import { CartContextProvider } from "./context/CartContext"
 import { Order } from "./components/Order/Order"
-import { ShopDetail } from "./components/ShopDetail/ShopDetail"
+import { ShopDetail } from "./components/Brief/Brief"
 import { FirebaseContextProvider } from "./context/FirebaseContext"
 
 

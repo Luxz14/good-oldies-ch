@@ -1,5 +1,6 @@
 export { default as App } from './App';
 export * from './asyncMock';
+export * from './components/Brief/Brief';
 export * from './components/Button/Button';
 export * from './components/Cart/Cart';
 export * from './components/CartWidget/CartWidget';
@@ -15,4 +16,5 @@ export * from './components/Order/Order';
 export * from './components/utils/seedProducts';
 export * from './config/firebaseConfig';
 export * from './context/CartContext';
+export * from './context/FirebaseContext';
 export * from './main';

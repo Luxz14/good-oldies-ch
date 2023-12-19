@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const ShopDetail = () => {
     const { orderId } = useContext(FirebaseContext);
-    const { cartItems, totalCartItems } = useContext(CartContext);
+    const { cartItems, totalCartItems, clearCartItems } = useContext(CartContext);
     console.log(orderId)
 
     return (
@@ -21,7 +21,7 @@ export const ShopDetail = () => {
                 ))}
                 <h5><strong>Total: {totalCartItems}</strong></h5>
                 <Link to="/"> 
-                    <Button text="Volver al inicio"/>
+                    <Button text="Volver al inicio" functionClick={clearCartItems} />
                 </Link>
             </div>
             </div> 
