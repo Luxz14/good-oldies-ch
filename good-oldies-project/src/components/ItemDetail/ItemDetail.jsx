@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { ItemCount } from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
-import Swal from "sweetalert2"
 
 export const ItemDetail = ({id, title, artist, genre, year, price, pictureUrl, stock }) => {
 

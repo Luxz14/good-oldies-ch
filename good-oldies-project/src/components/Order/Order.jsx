@@ -1,6 +1,4 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
-import { db } from "../../config/firebaseConfig"
-import { useContext, useRef, useState } from "react"
+import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Button } from "../Button/Button"
 import { useNavigate } from "react-router-dom"
@@ -15,18 +13,6 @@ export const Order = () => {
     const [email, setEmail] = useState("")
     const [phone, setPhone] = useState("")
     const navigate = useNavigate()
-
-    // const addOrderDBForm = (cartProducts, userData, total) => {   
-    //     const newOrder = {
-    //         buyer: userData,
-    //         items: cartProducts,
-    //         data: serverTimestamp(),
-    //         total
-    //     }
-
-    //     console.log(newOrder)
-    //     addDoc( collection(db, "orders"), newOrder );
-    // }
 
     const handleForm = async (e) => {
         e.preventDefault(); 

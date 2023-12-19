@@ -3,32 +3,12 @@ import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../config/firebaseConfig";
-import { seedProducts } from "../utils/seedProducts";
 
 
 
 export const ItemListContainer = () => {
     const { category } = useParams();
     const [products, setProducts] = useState([]);
-
-    // useEffect(() => {
-    //     getProducts()
-    //         .then((resp) => {
-
-    //             if (category) {
-    //                 const productsFilter = resp.filter((product) => product.category === category);
-                
-    //                 if(productsFilter.length > 0) {
-    //                     setProducts(productsFilter);
-    //                 } else {
-    //                     setProducts(resp);
-    //                 }
-    //             } else {
-    //                 setProducts(resp);
-    //             }
-    //         })
-    //         .catch((error) => console.log(error));
-    // }, [category]);
 
 
     const getProductsDB = (category) => {
