@@ -3,59 +3,49 @@ import { db } from "../../config/firebaseConfig"
 import { useContext, useRef, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import { Button } from "../Button/Button"
-// import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom"
+import { FirebaseContext } from "../../context/FirebaseContext"
 
 
 export const Order = () => {
 
     const { cartItems ,totalCartItems } = useContext(CartContext)
+    const { addOrderDB } = useContext(FirebaseContext);
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [phone, setPhone] = useState(null)
+    const [phone, setPhone] = useState("")
+    const navigate = useNavigate()
 
-    const addOrderDB = (cartProducts, userData, total) => {
-        const newOrder = {
-            buyer: userData,
-            items: cartProducts,
-            data: serverTimestamp(),
-            total
-        }
+    // const addOrderDBForm = (cartProducts, userData, total) => {   
+    //     const newOrder = {
+    //         buyer: userData,
+    //         items: cartProducts,
+    //         data: serverTimestamp(),
+    //         total
+    //     }
 
-        console.log(newOrder)
-        addDoc( collection(db, "orders"), newOrder );
-    }
+    //     console.log(newOrder)
+    //     addDoc( collection(db, "orders"), newOrder );
+    // }
 
-    const handleForm = (e) => {
+    const handleForm = async (e) => {
         e.preventDefault(); 
 
-        addOrderDB(cartItems, {name, email, phone}, totalCartItems)
+        try {
+            await addOrderDB(cartItems, { name, email, phone }, totalCartItems);
+            navigate("/Shop-Detail")
+        }
+
+        catch (error) {
+            console.error("Se ha encontrado un error intentando agregar la Orden", error);
+        }
 
         setName("");
         setEmail("");
-        setPhone(null);
-        
+        setPhone("");
         
     }
 
-    // const ordersRef = collection(db, "orders");
-    // const orderData = {
-    //     name,
-    //     email,
-    //     phone,
-    //     totalCartItems
-    //     }
-
-    // const docRef = addDoc(ordersRef, orderData);
-    // console.log('Orden creada con ID', docRef.id);
-
-    // const orderConfirmation = `
-    // Gracias por tu compra!
-    // Tu numero de orden es: ${docRef.id}<br>
-    // Total de la Compra: $${totalCartItems}<br>
-    // Nombre: ${name}<br>
-    // Email: ${email}<br>
-    // Número de Teléfono: ${phone}<br>
-    // `;
 
     return(
         <div className="container-form">

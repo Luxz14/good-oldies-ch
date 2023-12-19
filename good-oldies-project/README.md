@@ -1,8 +1,22 @@
-# React + Vite
+# Proyecto Good Oldies
+##### Comision 60995
+##### Profesor: Luis Alejandro Mera
+##### Tutores:
+- Sofía Luciuk
+- Ricardo Manzo
+- Federico Blautzik
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Descripcion:
+El proyecto Good Oldies fue creado en base a un e-commerce de albumes/discos de musica que han marcado una epoca.
 
-Currently, two official plugins are available:
+##### Tecnologias utilizadas:
+- React JS
+- Node 
+- Vite
+- React-Router-Dom
+- Firebase
+- Bootstrap
+- SweetAlert
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+###### Datos de Contacto:
+[Linkedin](http://https://www.linkedin.com/in/valentin-lucero-963100268/ "Linkedin")

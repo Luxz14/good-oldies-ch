@@ -6,11 +6,14 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { Cart } from "./components/Cart/Cart"
 import { CartContextProvider } from "./context/CartContext"
 import { Order } from "./components/Order/Order"
+import { ShopDetail } from "./components/ShopDetail/ShopDetail"
+import { FirebaseContextProvider } from "./context/FirebaseContext"
 
 
 function App() {
   return (
     <>
+    <FirebaseContextProvider>
     <CartContextProvider>
       <BrowserRouter>
         <NavBar />
@@ -20,10 +23,12 @@ function App() {
           <Route path="/item/:id" element={ <ItemDetailContainer /> } />
           <Route path="/cart" element={ <Cart /> } />
           <Route path="/confirmar-compra" element={<Order />} />
+          <Route path="/Shop-Detail" element={<ShopDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>
       </CartContextProvider>
+      </FirebaseContextProvider>
     </>
   )
 }

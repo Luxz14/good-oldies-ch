@@ -118,6 +118,32 @@ input {
   width: 250px;
 }
 
+.confirm-shop {
+  text-align: center;
+}
+
+.confirm-shop button {
+  display: inline-block;
+}
+
+.container {
+  align-items: center;
+  margin: auto;
+}
+
+.shop-detail-container {
+  align-items: center;
+  background-color: #FFF5E0;
+  margin: 30px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.shop-detail-container button {
+  align-items: center;
+  margin: auto;
+}
+
 .container-footer {
   padding: 1em 0;
   position: absolute;
